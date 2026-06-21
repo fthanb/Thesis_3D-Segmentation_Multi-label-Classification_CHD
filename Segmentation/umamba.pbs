@@ -17,5 +17,8 @@ export nnUNet_raw="/home/s2516118/skripsi/U-Mamba/data/nnUNet_raw"
 export nnUNet_preprocessed="/home/s2516118/skripsi/U-Mamba/data/nnUNet_preprocessed"
 export nnUNet_results="/home/s2516118/skripsi/U-Mamba/data/nnUNet_results"
 
+# U-Mamba Verification
+nnUNetv2_plan_and_preprocess -d Dataset001_ImageCHD --verify_dataset_integrity
+
 # Dataset ID, Config 3d_fullres, Fold 0, U-Mamba architecture
 nnUNetv2_train Dataset001_ImageCHD 3d_fullres 0 -tr nnUNetTrainerUMambaBot

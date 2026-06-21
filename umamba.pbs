@@ -1,0 +1,21 @@
+#!/bin/bash
+#PBS -q GPU-1
+#PBS -l select=1:ncpus=8:mpiprocs=8:ngpus=1
+#PBS -l walltime=72:00:00
+#PBS -N CHD_UMamba_Fold0
+#PBS -j oe
+#PBS -o /home/s2516118/skripsi/CHD_UMamba_Fold0.log
+
+cd $PBS_O_WORKDIR
+
+unset PYTHONPATH
+
+source /home/s2516118/skripsi/.venv2/bin/activate
+
+# U-Mamba paths
+export nnUNet_raw="/home/s2516118/skripsi/U-Mamba/data/nnUNet_raw"
+export nnUNet_preprocessed="/home/s2516118/skripsi/U-Mamba/data/nnUNet_preprocessed"
+export nnUNet_results="/home/s2516118/skripsi/U-Mamba/data/nnUNet_results"
+
+# Dataset ID, Config 3d_fullres, Fold 0, U-Mamba architecture
+nnUNetv2_train Dataset001_ImageCHD 3d_fullres 0 -tr nnUNetTrainerUMambaBot

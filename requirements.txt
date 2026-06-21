@@ -1,0 +1,16 @@
+numpy
+pandas
+scikit-learn
+scikit-multilearn
+
+torch
+torchvision
+monai
+nnunetv2
+nibabel
+
+matplotlib
+plotly
+scikit-image
+ipywidgets
+nbformat

@@ -1,9 +1,9 @@
 # 3D Segmentation and Multi-label Classification on Congenital Heart Diseases (3D CT-Scan)
 
-## 🔬 Research Preview
+## Research Preview
 This repository explainig the Thesis reseacrh of a deep learning pipeline for diagnosing Congenital Heart Disease (CHD) from 3D CT scans. The methodology is built upon data generalization and augmentation feeding a 3D U-Mamba segmentation model, which isolates seven cardiac organs to construct a topology-aware GNN/GCN that analyzes structural deviations for simultaneous, multi-label disease prediction.
 
-## Research Methodologies:
+## Research Methodologies
 1. Frame Generalization: Standardizes highly variable 3D CT volumes to a uniform 256-frame depth utilizing index-based duplication and symmetric trimming.
 2. Anatomically-Constrained Augmentation: Enhances dataset diversity through spatial rotation, 3D elastic deformation, and gamma contrast adjustments without compromising medical validity.
 3. Topological Modeling (GNN/GCN): Maps seven isolated cardiac nodes against a static adjacency matrix to explicitly evaluate anatomical deviations from a healthy topology.
@@ -53,7 +53,7 @@ In this research, U-Mamba framework is utilized to perform high-resolution 3D vo
 
 ### Additional Information
 * **`ImageCHD_Info.ipynb`**: A custom exploratory notebook utilized to analyze and summarize the raw ImageCHD dataset. It actively catalogs 110 NIfTI files and extracts critical metadata, including the Patient ID, filename, and exact spatial dimensions (X, Y, Z)—specifically mapping the Z-axis to determine the total number of volumetric frames for each individual scan.
-* **`3d.ipynb`**: Interactive visualization notebook designed to load the processed NIfTI data and generate rotatable 3D models of the cardiac structures. This aids in the visual and spatial validation of the dataset prior to training.
+* **`3d Visualization.ipynb`**: Interactive visualization notebook designed to load the processed NIfTI data and generate rotatable 3D models of the cardiac structures. This aids in the visual and spatial validation of the dataset prior to training.
 
 
 

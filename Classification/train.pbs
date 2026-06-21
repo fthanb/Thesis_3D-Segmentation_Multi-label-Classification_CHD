@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -q GPU-L
+#PBS -l select=1:ncpus=16:ngpus=1:mem=256gb
+#PBS -l walltime=72:00:00
+#PBS -N model_training
+#PBS -j oe
+#PBS -o /home/s2516118/skripsi/logs/training.log
+
+cd $PBS_O_WORKDIR
+cd /home/s2516118/skripsi/model 
+
+source /home/s2516118/skripsi/.venv2/bin/activate
+
+python train.py
+python evaluate.py

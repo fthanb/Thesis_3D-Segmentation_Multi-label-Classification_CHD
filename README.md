@@ -55,6 +55,143 @@ In this research, U-Mamba framework is utilized to perform high-resolution 3D vo
 * **`ImageCHD_Info.ipynb`**: A custom exploratory notebook utilized to analyze and summarize the raw ImageCHD dataset. It actively catalogs 110 NIfTI files and extracts critical metadata, including the Patient ID, filename, and exact spatial dimensions (X, Y, Z)—specifically mapping the Z-axis to determine the total number of volumetric frames for each individual scan.
 * **`3d Visualization.ipynb`**: Interactive visualization notebook designed to load the processed NIfTI data and generate rotatable 3D models of the cardiac structures. This aids in the visual and spatial validation of the dataset prior to training.
 
+## Research Result 
 
+This is the result (visualization) from segmentation model
+<img width="1618" height="523" alt="Screenshot 2026-04-28 094147" src="https://github.com/user-attachments/assets/01fd26d0-1d1b-484e-bbbe-4386ffc4f5cc" />
 
+Evaluation metrics used for segmentation are Dice Similiarity Coefficient (Dice Score) ± Standard Deviation in (%)
+| Organ | ImageCHD | U-Mamba | U-Mamba (FG) |
+| :--- | :---: | :---: | :---: |
+| **LV** | 77.7 ± 16.2 | 90.5 ± 4.6 | 90.9 ± 5.3 |
+| **RV** | 74.6 ± 13.8 | 86.8 ± 8.6 | 86.6 ± 9.8 |
+| **LA** | 77.9 ± 11.2 | 89.6 ± 5.9 | 90.0 ± 5.2 |
+| **RA** | 81.5 ± 11.5 | 89.4 ± 4.9 | 89.3 ± 5.7 |
+| **Myo** | - | 81.0 ± 22.6 | 84.0 ± 20.5 |
+| **Ao** | 66.5 ± 15.1 | 89.9 ± 5.2 | 91.4 ± 5.2 |
+| **PA** | 66.5 ± 15.1 | 82.3 ± 12.6 | 81.9 ± 12.9 |
+| **Average** | 75.6 ± 10.2 | 87.0 ± 3.9 | 87.7 ± 3.6 |
+
+Evaluation metrics used for classification are Precision, Recall, and F1-Score in each CHD types. 
+Then, Mean Average Precision (mAP) Score for overall performance.
+<table>
+  <thead>
+    <tr>
+      <th align="left">CHD Class</th>
+      <th align="center">Precision (%)</th>
+      <th align="center">Recall (%)</th>
+      <th align="center">F1-Score (%)</th>
+      <th align="center">Support</th>
+      <th align="center">mAP Score (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left"><b>ASD</b></td>
+      <td align="center">77</td>
+      <td align="center">100</td>
+      <td align="center">87</td>
+      <td align="center">17</td>
+      <td align="center" rowspan="15"><b>40</b></td>
+    </tr>
+    <tr>
+      <td align="left"><b>VSD</b></td>
+      <td align="center">71</td>
+      <td align="center">94</td>
+      <td align="center">81</td>
+      <td align="center">16</td>
+    </tr>
+    <tr>
+      <td align="left"><b>ToF</b></td>
+      <td align="center">9</td>
+      <td align="center">100</td>
+      <td align="center">17</td>
+      <td align="center">2</td>
+    </tr>
+    <tr>
+      <td align="left"><b>TGA</b></td>
+      <td align="center">9</td>
+      <td align="center">100</td>
+      <td align="center">17</td>
+      <td align="center">2</td>
+    </tr>
+    <tr>
+      <td align="left"><b>DORV</b></td>
+      <td align="center">9</td>
+      <td align="center">100</td>
+      <td align="center">17</td>
+      <td align="center">2</td>
+    </tr>
+    <tr>
+      <td align="left"><b>CAT</b></td>
+      <td align="center">5</td>
+      <td align="center">100</td>
+      <td align="center">9</td>
+      <td align="center">1</td>
+    </tr>
+    <tr>
+      <td align="left"><b>CA</b></td>
+      <td align="center">14</td>
+      <td align="center">100</td>
+      <td align="center">24</td>
+      <td align="center">3</td>
+    </tr>
+    <tr>
+      <td align="left"><b>AAH</b></td>
+      <td align="center">9</td>
+      <td align="center">100</td>
+      <td align="center">17</td>
+      <td align="center">2</td>
+    </tr>
+    <tr>
+      <td align="left"><b>DAA</b></td>
+      <td align="center">14</td>
+      <td align="center">100</td>
+      <td align="center">24</td>
+      <td align="center">3</td>
+    </tr>
+    <tr>
+      <td align="left"><b>IAA</b></td>
+      <td align="center">9</td>
+      <td align="center">100</td>
+      <td align="center">17</td>
+      <td align="center">2</td>
+    </tr>
+    <tr>
+      <td align="left"><b>PA</b></td>
+      <td align="center">32</td>
+      <td align="center">100</td>
+      <td align="center">48</td>
+      <td align="center">7</td>
+    </tr>
+    <tr>
+      <td align="left"><b>APVC</b></td>
+      <td align="center">5</td>
+      <td align="center">100</td>
+      <td align="center">9</td>
+      <td align="center">1</td>
+    </tr>
+    <tr>
+      <td align="left"><b>DSVC</b></td>
+      <td align="center">32</td>
+      <td align="center">100</td>
+      <td align="center">48</td>
+      <td align="center">7</td>
+    </tr>
+    <tr>
+      <td align="left"><b>PDA</b></td>
+      <td align="center">41</td>
+      <td align="center">100</td>
+      <td align="center">58</td>
+      <td align="center">9</td>
+    </tr>
+    <tr>
+      <td align="left"><b>PAS</b></td>
+      <td align="center">5</td>
+      <td align="center">100</td>
+      <td align="center">9</td>
+      <td align="center">1</td>
+    </tr>
+  </tbody>
+</table>
 
